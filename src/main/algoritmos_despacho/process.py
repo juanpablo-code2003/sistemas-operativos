@@ -12,4 +12,5 @@ class Process:
     self.system_time = 0
     
   def __str__(self):
-    return f'Process {self.id} (arrival_time: {self.arrival_time}, burst_time: {self.burst_time}, waiting_time: {self.waiting_time}, system_time: {self.system_time})'
+    priority = f' priority: {self.priority}' if self.priority is not None else ''
+    return f'Process {self.id} (arrival_time: {self.arrival_time}, burst_time: {self.burst_time},{priority} waiting_time: {self.waiting_time}, system_time: {self.system_time})'
