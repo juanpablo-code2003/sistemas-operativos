@@ -1,12 +1,12 @@
-from collections import deque
+from heapq import heappush
 
 from algoritmos_despacho.process import Process
 
 def fifo(processes: list[Process]):
-  queue = deque(processes)
   
-  while queue:
-    process = queue.popleft()
-    print(process)
+  queue = []
   
-  print('All processes have been executed')
+  for i, process in enumerate(processes):
+    heappush(queue, (process.arrival_time, i, process))
+  
+  return queue
