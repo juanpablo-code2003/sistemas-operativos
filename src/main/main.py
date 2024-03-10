@@ -1,5 +1,5 @@
-from fifo import fifo
-from process import Process
+from algoritmos_despacho.fifo import fifo
+from algoritmos_despacho.process import Process
 
 if __name__ == '__main__':
   processes = [

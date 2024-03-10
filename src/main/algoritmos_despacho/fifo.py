@@ -1,6 +1,6 @@
 from collections import deque
 
-from process import Process
+from algoritmos_despacho.process import Process
 
 def fifo(processes: list[Process]):
   queue = deque(processes)
