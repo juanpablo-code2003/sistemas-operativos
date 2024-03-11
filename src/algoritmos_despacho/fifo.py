@@ -18,11 +18,19 @@ def fifo(processes: list[Process]):
   sorted_processes = sorted(processes, key=lambda x: x.arrival_time)
   queue = []
   count_time = 0
+  average_waiting_time = 0
+  average_system_time = 0
   
   for process in sorted_processes:
     process.waiting_time = count_time - process.arrival_time
     process.system_time = process.waiting_time + process.burst_time
     heappush(queue, (process.arrival_time, process.id, process))
     count_time += process.burst_time
+    average_waiting_time += process.waiting_time
+    average_system_time += process.system_time
+
+  average_waiting_time /= len(processes)
+  average_system_time /= len(processes)
+  heappush(queue, (count_time, -1, [average_waiting_time, average_system_time]))
   
   return queue
