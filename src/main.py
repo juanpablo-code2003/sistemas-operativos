@@ -16,16 +16,16 @@ if __name__ == '__main__':
   fifo_list = fifo(processes)
   for queue in fifo_list:
     print(queue[-1])
-  create_gantt(fifo_list)
+  create_gantt('FIFO', fifo_list)
 
   print('\nSJF')
   sjf_list = sjf(processes)
   for queue in sjf_list:
     print(queue[-1])
-  create_gantt(sjf_list)
+  create_gantt('SJF', sjf_list)
 
   print('\nPriority')
   pri_list = priority(processes)
   for queue in pri_list:
     print(queue[-1])
-  create_gantt(pri_list)
+  create_gantt('Priority', pri_list)

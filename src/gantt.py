@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def create_gantt(entries):
+def create_gantt(title, entries):
   fig, ax = plt.subplots()
   start_time = 0
 
@@ -15,12 +15,17 @@ def create_gantt(entries):
     ax.broken_barh([(start_time, entry[-1].burst_time)], (i, 1), facecolors=colors[i % len(colors)])
     start_time += entry[-1].burst_time
 
-  # Set the y-axis labels
+  ax.set_title(title)
+
   ax.set_yticks(range(len(entries)))
   ax.set_yticklabels([entry[-1].id for entry in entries])
 
-  # Set the x-axis label
-  ax.set_xlabel('Time', ha='center')
+  ax.set_xlabel('Time(s)')
+  txt = "\n".join([f'{entry[-1]}' for entry in entries])
+  ax.text(0, -0.2, txt, transform=ax.transAxes, verticalalignment='top', fontsize=10)
+
+  # Adjust the layout to display the text
+  plt.tight_layout()
 
   # Show the plot
   plt.show()
