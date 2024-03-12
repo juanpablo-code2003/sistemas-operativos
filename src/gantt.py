@@ -43,4 +43,4 @@ def create_gantt(title, entries):
   plt.tight_layout()
 
   # Show the plot
-  plt.show()
+  # plt.show()

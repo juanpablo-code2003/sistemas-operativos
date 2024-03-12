@@ -1,9 +1,11 @@
+from csv import reader
+import matplotlib.pyplot as plt
+
 from algoritmos_despacho.fifo import fifo
 from algoritmos_despacho.sjf import sjf
 from algoritmos_despacho.process import Process
 from algoritmos_despacho.priority import priority
 from gantt import create_gantt
-from csv import reader
 
 if __name__ == '__main__':
   # Processes to be scheduled
@@ -52,3 +54,5 @@ if __name__ == '__main__':
     else:
       print(queue[-1])
   create_gantt('Priority', pri_list)
+  
+  plt.show()
